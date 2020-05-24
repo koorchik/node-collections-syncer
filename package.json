@@ -1,0 +1,19 @@
+{
+  "name": "collections-syncer",
+  "version": "1.0.0",
+  "description": "Storage agnostic and simple way to denormalize data for reporting etc (CQRS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koorchik/node-collections-syncer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koorchik/node-collections-syncer/issues"
+  },
+  "homepage": "https://github.com/koorchik/node-collections-syncer#readme"
+}

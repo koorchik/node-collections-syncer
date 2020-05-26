@@ -12,7 +12,26 @@ const syncSchema = {
     eventTrackId      : { collection : 'Event', srcField : 'trackId',   idField : 'eventId' }, 
     eventTrackName    : { collection : 'Track', srcField : 'name',      idField : 'eventTrackId' },    
     eventTrackCity    : { collection : 'Track', srcField : 'city',      idField : 'eventTrackId' },  
-    eventTrackCountry : { collection : 'Track', srcField : 'country',   idField : 'eventTrackId' },   
+    eventTrackCountry : { collection : 'Track', srcField : 'country',   idField : 'eventTrackId' },
+    bookingsCount     : { 
+        collection : 'Booking', 
+        srcFields  : [],
+        idField    : 'offerId',
+        formatter  : async (o) => {
+            return Booking.count();
+        },
+        trackEvents: ['CREATE', 'DELETE']
+    },
+    minBookingPrice   : { 
+        collection : 'Booking', 
+        srcField   : 'price', 
+        idField    : 'offerId',
+        formatter  : async (o) => {
+            const { price }  = await Booking.query('SELECT MIN(price) as price FROM bookings');
+            return price;
+        },
+        trackEvents: ['CREATE', 'UPDATE', 'DELETE']
+    },
     eventTrackFullNameUC  : { 
         collection : 'Track', 
         srcFields  : ['city', 'name', 'type'],      

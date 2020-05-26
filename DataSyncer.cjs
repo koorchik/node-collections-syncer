@@ -63,11 +63,11 @@ class DataSyncer {
                 s => s.collection === collection 
                 && s.srcFields 
                 && s.srcFields.length > 1
-                && s.srcFields.find( field => typeof(changed[field]) !== 'undefined' )
+                && s.srcFields.find( field => (field in changed) )
             ).map(
                 s => s.srcFields
             ).flat().filter(
-                field => typeof(changed[field]) === 'undefined'
+                field => !(field in changed)
             );
 
         if (extraFieldsToLoad.length === 0) {

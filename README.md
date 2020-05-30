@@ -2,6 +2,7 @@
 Storage agnostic and simple way to denormalize data for reporting etc (CQRS) 
 
 **DO NOT USE IT NOW**
+
 It is on prototype phase. We try to cover more edge cases and this is just a PoC. **Wait until the module is released to NPM**
 
 **TODO**
